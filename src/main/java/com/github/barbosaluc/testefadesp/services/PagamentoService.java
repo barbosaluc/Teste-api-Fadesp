@@ -96,7 +96,7 @@ public class PagamentoService {
     }
 
     public void excluirPagamentoLogicamente(Long idPagamento) {
-        logger.info("PagamentoService.excluirPagamentologicamente - Tentando inativar pagamento com ID: {}", idPagamento);
+        logger.info("PagamentoService.excluirPagamentoLogicamente - Tentando inativar pagamento com ID: {}", idPagamento);
         try {
             PagamentoEntity pagamentoEntity = iPagamentoRepository.findById(idPagamento)
                 .orElseThrow(() -> new RuntimeException("Pagamento não encontrado com ID: " + idPagamento));

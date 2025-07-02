@@ -30,7 +30,7 @@ public class PagamentoEntity {
     private Long idPagamento;
 
     @NotBlank(message = "A identificação do pagador é obrigatória" )
-    @Column(name = "IDENTIFICACAO_PAGADOR")
+    @Column(name = "IDENTIFICACAO_PAGADOR", nullable = false)
     private String identificacaoPagador;
 
     @NotNull(message = "O método de pagamento é obrigatório")
