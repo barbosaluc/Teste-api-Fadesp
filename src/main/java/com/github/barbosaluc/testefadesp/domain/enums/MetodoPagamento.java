@@ -16,6 +16,7 @@ public enum MetodoPagamento {
         this.descricao = descricao;
     }
 
+
     @JsonValue
     public String getDescricao() {
         return descricao;
