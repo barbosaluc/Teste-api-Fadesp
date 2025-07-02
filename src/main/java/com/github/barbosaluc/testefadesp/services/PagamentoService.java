@@ -12,49 +12,45 @@ import com.github.barbosaluc.testefadesp.domain.entities.PagamentoEntity;
 import com.github.barbosaluc.testefadesp.dto.PagamentoRequestDTO;
 import com.github.barbosaluc.testefadesp.dto.PagamentoResponseDTO;
 import com.github.barbosaluc.testefadesp.persistence.repositories.IPagamentoRepository;
-import com.github.barbosaluc.testefadesp.util.IPagamentoMapper;
+import com.github.barbosaluc.testefadesp.util.PagamentoMapper;
 
-import org.springframework.transaction.annotation.Transactional;
+import jakarta.transaction.Transactional;
 
-import com.github.barbosaluc.testefadesp.domain.enums.MetodoPagamento;
+import static com.github.barbosaluc.testefadesp.util.PagamentoMapper.toEntityFromRequest;
+import static com.github.barbosaluc.testefadesp.util.PagamentoMapper.toResponseFromEntity;
 import com.github.barbosaluc.testefadesp.domain.enums.StatusPagamento;
 
 @Service
 public class PagamentoService {
     
     private final IPagamentoRepository iPagamentoRepository;
-    private final IPagamentoMapper iPagamentoMapper;
     private final Logger logger = LoggerFactory.getLogger(PagamentoService.class);
 
-    public PagamentoService(IPagamentoRepository iPagamentoRepository, IPagamentoMapper iPagamentoMapper) {
+    public PagamentoService(IPagamentoRepository iPagamentoRepository) {
         this.iPagamentoRepository = iPagamentoRepository;
-        this.iPagamentoMapper = iPagamentoMapper;
     }
 
-    @Transactional
     public PagamentoResponseDTO criarPagamento(PagamentoRequestDTO pagamentoRequestDTO) {
         logger.info("PagamentoService.criarPagamento - Iniciando o processamento do pagamento");
         try {
-            PagamentoEntity pagamentoEntity = iPagamentoMapper.toEntity(pagamentoRequestDTO);
-            iPagamentoRepository.save(pagamentoEntity);
+            PagamentoEntity pagamentoEntity = toEntityFromRequest(pagamentoRequestDTO);
+            PagamentoResponseDTO pagamentoResponseDTO = toResponseFromEntity(iPagamentoRepository.save(pagamentoEntity));
             logger.info("PagamentoService.criarPagamento - Pagamento criado com sucesso com ID: {}", pagamentoEntity.getIdPagamento());
-
-            return iPagamentoMapper.toResponseDTO(pagamentoEntity);
-            
+            return pagamentoResponseDTO;
         } catch (Exception e) {
-            logger.error("PagamentoService.criarPagamento - Erro ao criar pagamento com ID: {}", pagamentoRequestDTO.getIdPagamento, e.getMessage(), e);
+            logger.error("PagamentoService.criarPagamento - Erro ao criar pagamento com ID: {}", e.getMessage(), e);
             throw new RuntimeException("Erro ao criar pagamento", e);
         } 
     } 
     
-    @Transactional(readOnly = true)
+
     public PagamentoResponseDTO buscarPagamentoPorId(Long idPagamento) {
         logger.info("PagamentoService.bucarPagamentoPorId - Buscando pagamento com ID: {}", idPagamento);
         try {
             Optional<PagamentoEntity> pagamentoEntityOptional = iPagamentoRepository.findById(idPagamento);
             if(pagamentoEntityOptional.isPresent()) {
                 logger.info("PagamentoService.buscarPagamentoPorId - Pagamento encontrado com ID; {}", idPagamento);
-                return iPagamentoMapper.toResponseDTO(pagamentoEntityOptional.get());
+                return toResponseFromEntity(pagamentoEntityOptional.get());
             } else {
                 logger.warn("PagamentoSerivce.buscarPagamentoPorId - Pagamento não encontrado com ID: {}", idPagamento);
                 return null;
@@ -70,7 +66,7 @@ public class PagamentoService {
         try {
             List<PagamentoEntity> pagamentos = iPagamentoRepository.findAll();
             return pagamentos.stream()
-                    .map(iPagamentoMapper::toResponseDTO)
+                    .map(PagamentoMapper::toResponseFromEntity)
                     .collect(Collectors.toList());
         } catch (Exception e) {
             logger.error("PagamentoService.listarPagamentos - Erro ao listar pagamentos {}", e.getMessage(), e);
@@ -86,13 +82,13 @@ public class PagamentoService {
                 .orElseThrow(() -> new RuntimeException("Pagamento não encontrado com ID: " + idPagamento)); 
 
             pagamentoEntity.setIdentificacaoPagador(pagamentoRequestDTO.identificacaoPagador());
-            pagamentoEntity.setMetodoPagamento(MetodoPagamento.fromJson(pagamentoRequestDTO.metodoPagamento()));
+            pagamentoEntity.setMetodoPagamento(pagamentoRequestDTO.metodoPagamento());
             pagamentoEntity.setNumeroCartao(pagamentoRequestDTO.numeroCartao());
             pagamentoEntity.setValorPagamento(pagamentoRequestDTO.valorPagamento());
 
             iPagamentoRepository.save(pagamentoEntity);
             logger.info("PagamentoService.atualizarPagamento - Pagamento atualizado com sucesso com ID: {}", idPagamento);
-            return iPagamentoMapper.toResponseDTO(pagamentoEntity);
+            return toResponseFromEntity(pagamentoEntity);
         } catch (Exception e) {
             logger.error("PagamentoService.atualizarPagamento - Erro ao atualizar pagamento: {}", e.getMessage(), e);
             throw new RuntimeException("Erro ao atualizar pagamento", e);

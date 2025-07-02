@@ -11,15 +11,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "TAB_PAGAMENTOS")
 public class PagamentoEntity {
     
@@ -28,8 +29,8 @@ public class PagamentoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPagamento;
 
-    @NotNull(message = "A identificação do pagador é obrigatório" )
-    @Column(name = "IDENTIFICACAO_PAGADOR", nullable = false)
+    @NotBlank(message = "A identificação do pagador é obrigatória" )
+    @Column(name = "IDENTIFICACAO_PAGADOR")
     private String identificacaoPagador;
 
     @NotNull(message = "O método de pagamento é obrigatório")
@@ -48,4 +49,5 @@ public class PagamentoEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "STATUS_PAGAMENTO", nullable = false)
     private StatusPagamento statusPagamento;
+    
 }

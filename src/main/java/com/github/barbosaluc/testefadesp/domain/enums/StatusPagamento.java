@@ -1,5 +1,6 @@
 package com.github.barbosaluc.testefadesp.domain.enums;
 
+
 public enum StatusPagamento {
 
     PENDENTE_PROCESSAMENTO("Pendente de Processamento"),
@@ -7,7 +8,7 @@ public enum StatusPagamento {
     PROCESSADO_FALHA("Processado com Falha"),
     INATIVO("Inativo");
 
-    private final String descricao;
+    private String descricao;
 
     StatusPagamento(String descricao) {
         this.descricao = descricao;
@@ -16,4 +17,5 @@ public enum StatusPagamento {
     public String getDescricao() {
         return descricao;
     }
+
 }
