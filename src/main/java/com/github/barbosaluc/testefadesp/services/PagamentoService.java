@@ -1,9 +1,11 @@
 package com.github.barbosaluc.testefadesp.services;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.github.barbosaluc.testefadesp.domain.enums.Status;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -75,17 +77,22 @@ public class PagamentoService {
     }
 
     @Transactional
-    public PagamentoResponseDTO atualizarPagamento(long idPagamento, PagamentoRequestDTO pagamentoRequestDTO) {
+    public PagamentoResponseDTO atualizarPagamento(long idPagamento, PagamentoRequestDTO pagamentoRequestDTO, StatusPagamento novoStatus) {
         logger.info("PagamentoService.atualizarPagamento - Atualizando pagamento com ID: {}", idPagamento);
         try {
             PagamentoEntity pagamentoEntity = iPagamentoRepository.findById(idPagamento)
-                .orElseThrow(() -> new RuntimeException("Pagamento não encontrado com ID: " + idPagamento)); 
-
+                .orElseThrow(() -> new RuntimeException("Pagamento não encontrado com ID: " + idPagamento));
+/*
             pagamentoEntity.setIdentificacaoPagador(pagamentoRequestDTO.identificacaoPagador());
             pagamentoEntity.setMetodoPagamento(pagamentoRequestDTO.metodoPagamento());
             pagamentoEntity.setNumeroCartao(pagamentoRequestDTO.numeroCartao());
             pagamentoEntity.setValorPagamento(pagamentoRequestDTO.valorPagamento());
+*/
+            if (pagamentoEntity.getStatusPagamento() == StatusPagamento.PENDENTE_PROCESSAMENTO && novoStatus == StatusPagamento.PROCESSADO_SUCESSO) {
+                pagamentoEntity.setDataPagamento(LocalDateTime.now());
+            }
 
+            pagamentoEntity.setStatusPagamento(novoStatus);
             iPagamentoRepository.save(pagamentoEntity);
             logger.info("PagamentoService.atualizarPagamento - Pagamento atualizado com sucesso com ID: {}", idPagamento);
             return toResponseFromEntity(pagamentoEntity);
@@ -105,7 +112,7 @@ public class PagamentoService {
                     throw new IllegalStateException("Pagamento só pode ser inativado se estiver com o processamento pendente");
                 }
             
-            pagamentoEntity.setStatusPagamento(StatusPagamento.INATIVO);
+            pagamentoEntity.setStatus(Status.INATIVO);
             iPagamentoRepository.save(pagamentoEntity);
             logger.info("PagamentoService.excluirPagamentoLogicamente - Pagamento inativado com sucesso. ID: {}", idPagamento);
         } catch (Exception e) {

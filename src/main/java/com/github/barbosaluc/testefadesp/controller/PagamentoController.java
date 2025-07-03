@@ -1,15 +1,9 @@
 package com.github.barbosaluc.testefadesp.controller;
 
+import com.github.barbosaluc.testefadesp.domain.enums.StatusPagamento;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.github.barbosaluc.testefadesp.dto.PagamentoRequestDTO;
 import com.github.barbosaluc.testefadesp.dto.PagamentoResponseDTO;
@@ -63,8 +57,8 @@ public class PagamentoController {
         @ApiResponse(responseCode = "204", description = "Pagamento atualizado com sucesso."),
         @ApiResponse(responseCode = "404", description = "Pagamento não encontrado.")
     })
-    public ResponseEntity<PagamentoResponseDTO> atualizarPagamento(@PathVariable Long idPagamento, @Valid @RequestBody PagamentoRequestDTO pagamentoRequestDTO) {
-        PagamentoResponseDTO pagamentoResponseDto = pagamentoService.atualizarPagamento(idPagamento, pagamentoRequestDTO);
+    public ResponseEntity<PagamentoResponseDTO> atualizarPagamento(@PathVariable Long idPagamento, @Valid @RequestBody PagamentoRequestDTO pagamentoRequestDTO,  StatusPagamento statusPagamento) {
+        PagamentoResponseDTO pagamentoResponseDto = pagamentoService.atualizarPagamento(idPagamento, pagamentoRequestDTO, statusPagamento);
         if (pagamentoResponseDto != null) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(pagamentoResponseDto);
         } else {

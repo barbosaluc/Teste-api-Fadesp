@@ -5,8 +5,7 @@ public enum StatusPagamento {
 
     PENDENTE_PROCESSAMENTO("Pendente de Processamento"),
     PROCESSADO_SUCESSO("Processado com Sucesso"),
-    PROCESSADO_FALHA("Processado com Falha"),
-    INATIVO("Inativo");
+    PROCESSADO_FALHA("Processado com Falha");
 
     private String descricao;
 

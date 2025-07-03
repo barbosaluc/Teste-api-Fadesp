@@ -2,6 +2,7 @@ package com.github.barbosaluc.testefadesp.util;
 
 
 import com.github.barbosaluc.testefadesp.domain.entities.PagamentoEntity;
+import com.github.barbosaluc.testefadesp.domain.enums.Status;
 import com.github.barbosaluc.testefadesp.domain.enums.StatusPagamento;
 import com.github.barbosaluc.testefadesp.dto.PagamentoRequestDTO;
 import com.github.barbosaluc.testefadesp.dto.PagamentoResponseDTO;
@@ -14,7 +15,10 @@ public class PagamentoMapper {
             pagamentoEntity.getMetodoPagamento(),
             pagamentoEntity.getNumeroCartao(),
             pagamentoEntity.getValorPagamento(),
-            pagamentoEntity.getStatusPagamento()
+            pagamentoEntity.getStatusPagamento(),
+            pagamentoEntity.getDataPagamento(),
+            pagamentoEntity.getStatus()
+
         );
     }
   
@@ -25,7 +29,9 @@ public class PagamentoMapper {
             pagamentoRequestDTO.metodoPagamento(),
             pagamentoRequestDTO.numeroCartao(),
             pagamentoRequestDTO.valorPagamento(),
-            StatusPagamento.PENDENTE_PROCESSAMENTO
+            StatusPagamento.PENDENTE_PROCESSAMENTO,
+            null,
+            Status.ATIVO
         );
     }
 }

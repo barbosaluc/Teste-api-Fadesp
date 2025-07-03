@@ -1,6 +1,8 @@
 package com.github.barbosaluc.testefadesp.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.github.barbosaluc.testefadesp.domain.enums.MetodoPagamento;
+import com.github.barbosaluc.testefadesp.domain.enums.Status;
 import com.github.barbosaluc.testefadesp.domain.enums.StatusPagamento;
 
 import jakarta.persistence.Column;
@@ -16,6 +18,9 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -43,11 +48,20 @@ public class PagamentoEntity {
 
     @NotNull(message = "O valor do pagamento é obrigatório")
     @Column(name = "VALOR_PAGAMENTO", nullable = false)
-    private Double valorPagamento;
+    private BigDecimal valorPagamento;
 
     @NotNull(message = "O status do pagamento é obrigatório")
     @Enumerated(EnumType.STRING)
     @Column(name = "STATUS_PAGAMENTO", nullable = false)
     private StatusPagamento statusPagamento;
+
+    @NotNull(message = "A data do pagamento não pode ser nula")
+    @Column(name = "DATA_PAGAMENTO")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+    private LocalDateTime dataPagamento;
+
+    @NotBlank(message = "O status do pagamento é obrigatório")
+    @Column(name = "STATUS", nullable = false)
+    private Status status = Status.ATIVO;
     
 }
