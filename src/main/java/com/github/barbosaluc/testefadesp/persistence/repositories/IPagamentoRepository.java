@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.github.barbosaluc.testefadesp.domain.entities.PagamentoEntity;
 
 @Repository
-public interface IPagamentoRepository extends JpaRepository<PagamentoEntity, Long> {
+public interface IPagamentoRepository extends JpaRepository<PagamentoEntity, Long> JpaSpecification<PagamentoEntity> {
     
 }

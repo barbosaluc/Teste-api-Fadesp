@@ -5,22 +5,25 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import com.github.barbosaluc.testefadesp.domain.enums.Status;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.github.barbosaluc.testefadesp.domain.entities.PagamentoEntity;
+import com.github.barbosaluc.testefadesp.domain.enums.Status;
+import com.github.barbosaluc.testefadesp.domain.enums.StatusPagamento;
 import com.github.barbosaluc.testefadesp.dto.PagamentoRequestDTO;
 import com.github.barbosaluc.testefadesp.dto.PagamentoResponseDTO;
+import com.github.barbosaluc.testefadesp.dto.PagamentoFiltroDTO;
+import com.github.barbosaluc.testefadesp.dto.PagamentoFiltroDTO;
 import com.github.barbosaluc.testefadesp.persistence.repositories.IPagamentoRepository;
+import com.github.barbosaluc.testefadesp.specification.PagamentoSpecification;
 import com.github.barbosaluc.testefadesp.util.PagamentoMapper;
-
-import jakarta.transaction.Transactional;
-
 import static com.github.barbosaluc.testefadesp.util.PagamentoMapper.toEntityFromRequest;
 import static com.github.barbosaluc.testefadesp.util.PagamentoMapper.toResponseFromEntity;
-import com.github.barbosaluc.testefadesp.domain.enums.StatusPagamento;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class PagamentoService {
@@ -76,6 +79,17 @@ public class PagamentoService {
         }
     }
 
+    public List<PagamentoResponseDTO> buscarPagamentosPorFiltro(PagamentoFiltroDTO pagamentoFiltroDTO) {
+        Specification<PagamentoEntity> spec = PagamentoSpecification.comIdPagamento(pagamentoFiltroDTO.idPagamento())
+            .and(PagamentoSpecification.comIdentificacaoPagador(pagamentoFiltroDTO.identificacaoPagador()))
+            .and(PagamentoSpecification.comStatusPagamento(pagamentoFiltroDTO.getStatusPagamento()));
+
+        List<PagamentoEntity> pagamentos = iPagamentoRepository.findAll(spec);
+        return pagamentos.stream()
+            .map(PagamentoMapper::toResponseFromEntity)
+            .toList();
+    }
+
     @Transactional
     public PagamentoResponseDTO atualizarPagamento(long idPagamento, PagamentoRequestDTO pagamentoRequestDTO, StatusPagamento novoStatus) {
         logger.info("PagamentoService.atualizarPagamento - Atualizando pagamento com ID: {}", idPagamento);
@@ -90,6 +104,14 @@ public class PagamentoService {
 */
             if (pagamentoEntity.getStatusPagamento() == StatusPagamento.PENDENTE_PROCESSAMENTO && novoStatus == StatusPagamento.PROCESSADO_SUCESSO) {
                 pagamentoEntity.setDataPagamento(LocalDateTime.now());
+            }
+
+            if (pagamentoEntity.getStatusPagamento() == StatusPagamento.PROCESSADO_SUCESSO) {
+                throw new IllegalStateException("Não é permitido alterar o status de um pagamento processado com sucesso");
+            }
+
+            if (pagamentoEntity.getStatusPagamento() == StatusPagamento.PROCESSADO_FALHA && novoStatus != StatusPagamento.PENDENTE_PROCESSAMENTO ) {
+                throw new IllegalStateException("Só é permitido alterar o pagamento processado com falha para processamento pendente");
             }
 
             pagamentoEntity.setStatusPagamento(novoStatus);

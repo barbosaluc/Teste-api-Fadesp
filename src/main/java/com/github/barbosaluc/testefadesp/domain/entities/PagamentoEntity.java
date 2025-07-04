@@ -1,5 +1,8 @@
 package com.github.barbosaluc.testefadesp.domain.entities;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.github.barbosaluc.testefadesp.domain.enums.MetodoPagamento;
 import com.github.barbosaluc.testefadesp.domain.enums.Status;
@@ -18,9 +21,6 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -61,6 +61,7 @@ public class PagamentoEntity {
     private LocalDateTime dataPagamento;
 
     @NotBlank(message = "O status do pagamento é obrigatório")
+    @Enumerated(EnumType.STRING)
     @Column(name = "STATUS", nullable = false)
     private Status status = Status.ATIVO;
     

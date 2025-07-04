@@ -1,12 +1,16 @@
 package com.github.barbosaluc.testefadesp.controller;
 
 import com.github.barbosaluc.testefadesp.domain.enums.StatusPagamento;
+
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.github.barbosaluc.testefadesp.dto.PagamentoRequestDTO;
 import com.github.barbosaluc.testefadesp.dto.PagamentoResponseDTO;
+import com.github.barbosaluc.testefadesp.dto.PagamentoFiltroDTO;
 import com.github.barbosaluc.testefadesp.services.PagamentoService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -51,6 +55,12 @@ public class PagamentoController {
         return ResponseEntity.ok(pagamentoResponseDto);
     }
 
+    @GetMapping("/filtrosPagamentos")
+    public ResponseEntity<List<PagamentoResponseDTO>> buscarPagamentosPorFiltro(@ModelAttribute PagamentoFiltroDTO pagamentoFiltroDTO) {
+        List<PagamentoResponseDTO> resultados = pagamentoService.filtrarPagamentos(pagamentoFiltroDTO);
+        return ResponseEntity.ok(resultados);
+    } 
+        
     @PutMapping("/{idPagamento}")
     @Operation(summary = "Atualizar pagamento", description = "Este endpoint atualiza um pagamento existente no sistema com base no ID fornecido.")
     @ApiResponses(value = {
