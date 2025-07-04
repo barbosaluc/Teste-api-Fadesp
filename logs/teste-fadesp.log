@@ -1,0 +1,225 @@
+2025-07-04 16:31:01 - Starting TesteFadespApplication using Java 22.0.2 with PID 22596 (C:\workSpace1\Teste-api-Fadesp\target\classes started by DESENVOLVEDOR MXM in C:\workSpace1\Teste-api-Fadesp)
+2025-07-04 16:31:01 - No active profile set, falling back to 1 default profile: "default"
+2025-07-04 16:31:02 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04 16:31:02 - Finished Spring Data repository scanning in 54 ms. Found 1 JPA repository interface.
+2025-07-04 16:31:03 - Tomcat initialized with port 8080 (http)
+2025-07-04 16:31:03 - Initializing ProtocolHandler ["http-nio-8080"]
+2025-07-04 16:31:03 - Starting service [Tomcat]
+2025-07-04 16:31:03 - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-04 16:31:03 - Initializing Spring embedded WebApplicationContext
+2025-07-04 16:31:03 - Root WebApplicationContext: initialization completed in 1429 ms
+2025-07-04 16:31:03 - HikariPool-1 - Starting...
+2025-07-04 16:31:03 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:bancoTesteFadesp user=SA
+2025-07-04 16:31:03 - HikariPool-1 - Start completed.
+2025-07-04 16:31:03 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04 16:31:03 - HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-07-04 16:31:03 - HHH000026: Second-level cache disabled
+2025-07-04 16:31:04 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04 16:31:04 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-04 16:31:04 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-04 16:31:05 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04 16:31:05 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 16:31:05 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-04 16:31:05 - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-04 16:31:05 - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:bancoTesteFadesp'
+2025-07-04 16:31:05 - Starting ProtocolHandler ["http-nio-8080"]
+2025-07-04 16:31:05 - Tomcat started on port 8080 (http) with context path '/'
+2025-07-04 16:31:06 - Started TesteFadespApplication in 4.859 seconds (process running for 5.87)
+2025-07-04 16:31:06 - A aplicação iniciada com sucesso!
+2025-07-04 16:31:42 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-04 16:31:42 - Initializing Servlet 'dispatcherServlet'
+2025-07-04 16:31:42 - Completed initialization in 3 ms
+2025-07-04 16:31:42 - PagamentoService.criarPagamento - Iniciando o processamento do pagamento
+2025-07-04 16:31:42 - PagamentoService.criarPagamento - Pagamento criado com sucesso com ID: 1
+2025-07-04 16:33:18 - Init duration for springdoc-openapi is: 555 ms
+2025-07-04 16:34:47 - PagamentoService.bucarPagamentoPorId - Buscando pagamento com ID: 1
+2025-07-04 16:34:47 - PagamentoService.buscarPagamentoPorId - Pagamento encontrado com ID; 1
+2025-07-04 16:35:06 - PagamentoService.listarPagamentos - Listando todos os pagamentos
+2025-07-04 16:38:25 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-04 16:38:25 - Graceful shutdown complete
+2025-07-04 16:38:25 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 16:38:25 - HikariPool-1 - Shutdown initiated...
+2025-07-04 16:38:25 - HikariPool-1 - Shutdown completed.
+2025-07-04 16:42:25 - Starting TesteFadespApplication using Java 22.0.2 with PID 7744 (C:\workSpace1\Teste-api-Fadesp\target\classes started by DESENVOLVEDOR MXM in C:\workSpace1\Teste-api-Fadesp)
+2025-07-04 16:42:25 - No active profile set, falling back to 1 default profile: "default"
+2025-07-04 16:42:25 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04 16:42:25 - Finished Spring Data repository scanning in 49 ms. Found 1 JPA repository interface.
+2025-07-04 16:42:26 - Tomcat initialized with port 8080 (http)
+2025-07-04 16:42:26 - Initializing ProtocolHandler ["http-nio-8080"]
+2025-07-04 16:42:26 - Starting service [Tomcat]
+2025-07-04 16:42:26 - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-04 16:42:26 - Initializing Spring embedded WebApplicationContext
+2025-07-04 16:42:26 - Root WebApplicationContext: initialization completed in 1609 ms
+2025-07-04 16:42:26 - HikariPool-1 - Starting...
+2025-07-04 16:42:27 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:bancoTesteFadesp user=SA
+2025-07-04 16:42:27 - HikariPool-1 - Start completed.
+2025-07-04 16:42:27 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04 16:42:27 - HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-07-04 16:42:27 - HHH000026: Second-level cache disabled
+2025-07-04 16:42:27 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04 16:42:27 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-04 16:42:27 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-04 16:42:28 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04 16:42:28 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 16:42:29 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-04 16:42:29 - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-04 16:42:29 - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:bancoTesteFadesp'
+2025-07-04 16:42:29 - Starting ProtocolHandler ["http-nio-8080"]
+2025-07-04 16:42:29 - Tomcat started on port 8080 (http) with context path '/'
+2025-07-04 16:42:29 - Started TesteFadespApplication in 5.209 seconds (process running for 6.19)
+2025-07-04 16:42:29 - A aplicação iniciada com sucesso!
+2025-07-04 16:52:46 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-04 16:52:46 - Initializing Servlet 'dispatcherServlet'
+2025-07-04 16:52:46 - Completed initialization in 5 ms
+2025-07-04 16:52:47 - Init duration for springdoc-openapi is: 1000 ms
+2025-07-04 16:53:50 - PagamentoService.criarPagamento - Iniciando o processamento do pagamento
+2025-07-04 16:53:50 - PagamentoService.criarPagamento - Pagamento criado com sucesso com ID: 1
+2025-07-04 16:58:29 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-04 16:58:29 - Graceful shutdown complete
+2025-07-04 16:58:29 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 16:58:29 - HikariPool-1 - Shutdown initiated...
+2025-07-04 16:58:29 - HikariPool-1 - Shutdown completed.
+2025-07-04 16:58:37 - Starting TesteFadespApplication using Java 22.0.2 with PID 2292 (C:\workSpace1\Teste-api-Fadesp\target\classes started by DESENVOLVEDOR MXM in C:\workSpace1\Teste-api-Fadesp)
+2025-07-04 16:58:37 - No active profile set, falling back to 1 default profile: "default"
+2025-07-04 16:58:37 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04 16:58:37 - Finished Spring Data repository scanning in 54 ms. Found 1 JPA repository interface.
+2025-07-04 16:58:38 - Tomcat initialized with port 8080 (http)
+2025-07-04 16:58:38 - Initializing ProtocolHandler ["http-nio-8080"]
+2025-07-04 16:58:38 - Starting service [Tomcat]
+2025-07-04 16:58:38 - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-04 16:58:38 - Initializing Spring embedded WebApplicationContext
+2025-07-04 16:58:38 - Root WebApplicationContext: initialization completed in 1549 ms
+2025-07-04 16:58:38 - HikariPool-1 - Starting...
+2025-07-04 16:58:39 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:bancoTesteFadesp user=SA
+2025-07-04 16:58:39 - HikariPool-1 - Start completed.
+2025-07-04 16:58:39 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04 16:58:39 - HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-07-04 16:58:39 - HHH000026: Second-level cache disabled
+2025-07-04 16:58:39 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04 16:58:39 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-04 16:58:39 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-04 16:58:40 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04 16:58:40 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 16:58:40 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-04 16:58:40 - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-04 16:58:41 - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:bancoTesteFadesp'
+2025-07-04 16:58:41 - Starting ProtocolHandler ["http-nio-8080"]
+2025-07-04 16:58:41 - Tomcat started on port 8080 (http) with context path '/'
+2025-07-04 16:58:41 - Started TesteFadespApplication in 4.896 seconds (process running for 5.805)
+2025-07-04 16:58:41 - A aplicação iniciada com sucesso!
+2025-07-04 16:59:53 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-04 16:59:53 - Initializing Servlet 'dispatcherServlet'
+2025-07-04 16:59:53 - Completed initialization in 1 ms
+2025-07-04 16:59:54 - Init duration for springdoc-openapi is: 445 ms
+2025-07-04 17:01:06 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-04 17:01:06 - Graceful shutdown complete
+2025-07-04 17:01:06 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 17:01:06 - HikariPool-1 - Shutdown initiated...
+2025-07-04 17:01:06 - HikariPool-1 - Shutdown completed.
+2025-07-04 17:02:39 - Starting TesteFadespApplication using Java 22.0.2 with PID 25416 (C:\workSpace1\Teste-api-Fadesp\target\classes started by DESENVOLVEDOR MXM in C:\workSpace1\Teste-api-Fadesp)
+2025-07-04 17:02:39 - No active profile set, falling back to 1 default profile: "default"
+2025-07-04 17:02:40 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04 17:02:40 - Finished Spring Data repository scanning in 66 ms. Found 1 JPA repository interface.
+2025-07-04 17:02:40 - Tomcat initialized with port 8080 (http)
+2025-07-04 17:02:40 - Initializing ProtocolHandler ["http-nio-8080"]
+2025-07-04 17:02:40 - Starting service [Tomcat]
+2025-07-04 17:02:40 - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-04 17:02:40 - Initializing Spring embedded WebApplicationContext
+2025-07-04 17:02:40 - Root WebApplicationContext: initialization completed in 1648 ms
+2025-07-04 17:02:40 - HikariPool-1 - Starting...
+2025-07-04 17:02:41 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:bancoTesteFadesp user=SA
+2025-07-04 17:02:41 - HikariPool-1 - Start completed.
+2025-07-04 17:02:41 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04 17:02:41 - HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-07-04 17:02:41 - HHH000026: Second-level cache disabled
+2025-07-04 17:02:41 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04 17:02:41 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-04 17:02:41 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-04 17:02:42 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04 17:02:42 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 17:02:42 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-04 17:02:42 - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-04 17:02:43 - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:bancoTesteFadesp'
+2025-07-04 17:02:43 - Starting ProtocolHandler ["http-nio-8080"]
+2025-07-04 17:02:43 - Tomcat started on port 8080 (http) with context path '/'
+2025-07-04 17:02:43 - Started TesteFadespApplication in 4.974 seconds (process running for 5.898)
+2025-07-04 17:02:43 - A aplicação iniciada com sucesso!
+2025-07-04 17:05:57 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-04 17:05:57 - Initializing Servlet 'dispatcherServlet'
+2025-07-04 17:05:57 - Completed initialization in 2 ms
+2025-07-04 17:05:57 - PagamentoService.criarPagamento - Iniciando o processamento do pagamento
+2025-07-04 17:05:57 - PagamentoService.criarPagamento - Pagamento criado com sucesso com ID: 1
+2025-07-04 17:06:28 - Init duration for springdoc-openapi is: 823 ms
+2025-07-04 17:07:09 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name]
+2025-07-04 17:07:36 - PagamentoService.buscarPagamentosPorFiltro - Buscando pagamentos com filtros: PagamentoFiltroDTO[codigoDebito=45857, identificacaoPagador=null, statusPagamento=null]
+2025-07-04 17:07:36 - PagamentoService.buscarPagamentosPorFiltro - Encontrados 1 pagamentos com os filtros fornecidos
+2025-07-04 17:08:15 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Invalid numeric value: Leading zeroes not allowed]
+2025-07-04 17:08:30 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Invalid numeric value: Leading zeroes not allowed]
+2025-07-04 17:09:00 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Invalid numeric value: Leading zeroes not allowed]
+2025-07-04 17:09:33 - PagamentoService.atualizarPagamento - Atualizando pagamento com ID: 1
+2025-07-04 17:09:33 - PagamentoService.atualizarPagamento - Pagamento atualizado com sucesso com ID: 1
+2025-07-04 17:10:00 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Invalid numeric value: Leading zeroes not allowed]
+2025-07-04 17:10:32 - PagamentoService.buscarPagamentosPorFiltro - Buscando pagamentos com filtros: PagamentoFiltroDTO[codigoDebito=null, identificacaoPagador=04326461241, statusPagamento=null]
+2025-07-04 17:10:32 - PagamentoService.buscarPagamentosPorFiltro - Encontrados 1 pagamentos com os filtros fornecidos
+2025-07-04 17:11:22 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized token 'PROCESSADO_SUCESSO': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')]
+2025-07-04 17:12:50 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized token 'Processado': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')]
+2025-07-04 17:13:32 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized token 'Processado': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')]
+2025-07-04 17:14:08 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized token 'PROCESSADO': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')]
+2025-07-04 17:15:23 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized token 'PROCESSADO': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')]
+2025-07-04 17:15:47 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized token 'PROCESSADO_SUCESSO': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')]
+2025-07-04 17:21:01 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized token 'PROCESSADO_SUCESSO': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')]
+2025-07-04 17:21:17 - PagamentoService.buscarPagamentosPorFiltro - Buscando pagamentos com filtros: PagamentoFiltroDTO[codigoDebito=45857, identificacaoPagador=null, statusPagamento=null]
+2025-07-04 17:21:17 - PagamentoService.buscarPagamentosPorFiltro - Encontrados 1 pagamentos com os filtros fornecidos
+2025-07-04 17:21:41 - PagamentoService.buscarPagamentosPorFiltro - Buscando pagamentos com filtros: PagamentoFiltroDTO[codigoDebito=null, identificacaoPagador=04326461241, statusPagamento=null]
+2025-07-04 17:21:41 - PagamentoService.buscarPagamentosPorFiltro - Encontrados 1 pagamentos com os filtros fornecidos
+2025-07-04 17:23:41 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized token 'processado': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')]
+2025-07-04 17:24:39 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.github.barbosaluc.testefadesp.domain.enums.StatusPagamento` from String "Processado com sucesso": not one of the values accepted for Enum class: [PROCESSADO_FALHA, PROCESSADO_SUCESSO, PENDENTE_PROCESSAMENTO]]
+2025-07-04 17:24:56 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.github.barbosaluc.testefadesp.domain.enums.StatusPagamento` from String "Processado com Sucesso": not one of the values accepted for Enum class: [PROCESSADO_FALHA, PROCESSADO_SUCESSO, PENDENTE_PROCESSAMENTO]]
+2025-07-04 17:25:41 - PagamentoService.buscarPagamentosPorFiltro - Buscando pagamentos com filtros: PagamentoFiltroDTO[codigoDebito=null, identificacaoPagador=null, statusPagamento=PROCESSADO_SUCESSO]
+2025-07-04 17:25:41 - PagamentoService.buscarPagamentosPorFiltro - Encontrados 1 pagamentos com os filtros fornecidos
+2025-07-04 17:29:43 - PagamentoService.criarPagamento - Iniciando o processamento do pagamento
+2025-07-04 17:29:43 - PagamentoService.criarPagamento - Pagamento criado com sucesso com ID: 2
+2025-07-04 17:30:17 - PagamentoService.buscarPagamentosPorFiltro - Buscando pagamentos com filtros: PagamentoFiltroDTO[codigoDebito=null, identificacaoPagador=null, statusPagamento=PROCESSADO_FALHA]
+2025-07-04 17:30:17 - PagamentoService.buscarPagamentosPorFiltro - Encontrados 0 pagamentos com os filtros fornecidos
+2025-07-04 17:30:45 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.github.barbosaluc.testefadesp.domain.enums.StatusPagamento` from String "PROCESSADO_PENDENTE": not one of the values accepted for Enum class: [PROCESSADO_FALHA, PROCESSADO_SUCESSO, PENDENTE_PROCESSAMENTO]]
+2025-07-04 17:31:11 - PagamentoService.buscarPagamentosPorFiltro - Buscando pagamentos com filtros: PagamentoFiltroDTO[codigoDebito=null, identificacaoPagador=null, statusPagamento=PENDENTE_PROCESSAMENTO]
+2025-07-04 17:31:11 - PagamentoService.buscarPagamentosPorFiltro - Encontrados 1 pagamentos com os filtros fornecidos
+2025-07-04 17:32:21 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.github.barbosaluc.testefadesp.domain.enums.StatusPagamento` from String "PENDENTE DE PROCESSAMENTO": not one of the values accepted for Enum class: [PROCESSADO_FALHA, PROCESSADO_SUCESSO, PENDENTE_PROCESSAMENTO]]
+2025-07-04 17:32:42 - PagamentoService.buscarPagamentosPorFiltro - Buscando pagamentos com filtros: PagamentoFiltroDTO[codigoDebito=null, identificacaoPagador=null, statusPagamento=PENDENTE_PROCESSAMENTO]
+2025-07-04 17:32:42 - PagamentoService.buscarPagamentosPorFiltro - Encontrados 1 pagamentos com os filtros fornecidos
+2025-07-04 17:33:01 - PagamentoService.listarPagamentos - Listando todos os pagamentos
+2025-07-04 17:33:13 - PagamentoService.bucarPagamentoPorId - Buscando pagamento com ID: 1
+2025-07-04 17:33:13 - PagamentoService.buscarPagamentoPorId - Pagamento encontrado com ID; 1
+2025-07-04 17:34:49 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-04 17:34:49 - Graceful shutdown complete
+2025-07-04 17:34:49 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 17:34:49 - HikariPool-1 - Shutdown initiated...
+2025-07-04 17:34:49 - HikariPool-1 - Shutdown completed.

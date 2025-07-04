@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 
 public record PagamentoResponseDTO (
         Long idPagamento,
+        Long codigoDebito,
         String identificacaoPagador,
         MetodoPagamento metodoPagamento,
         Long numeroCartao,

@@ -18,6 +18,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,7 +35,15 @@ public class PagamentoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPagamento;
 
+    @NotNull(message = "O código do débito é obrigatório")
+    @Column(name = "CODIGO_DEBITO", nullable = false)
+    private Long codigoDebito;
+
     @NotBlank(message = "A identificação do pagador é obrigatória" )
+    @Pattern(
+            regexp = "^\\d{11}|\\d{14}$",
+            message = "A identificação do pagador deve conter 11 (CPF) ou 14 (CNPJ) dígitos numéricos"
+    )
     @Column(name = "IDENTIFICACAO_PAGADOR", nullable = false)
     private String identificacaoPagador;
 

@@ -10,6 +10,7 @@ import com.github.barbosaluc.testefadesp.dto.PagamentoResponseDTO;
 public class PagamentoMapper {
     public static PagamentoResponseDTO toResponseFromEntity(PagamentoEntity pagamentoEntity) {
         return new PagamentoResponseDTO (
+            pagamentoEntity.getCodigoDebito(),
             pagamentoEntity.getIdPagamento(),
             pagamentoEntity.getIdentificacaoPagador(),
             pagamentoEntity.getMetodoPagamento(),
@@ -25,6 +26,7 @@ public class PagamentoMapper {
     public static PagamentoEntity toEntityFromRequest(PagamentoRequestDTO pagamentoRequestDTO) {
         return new PagamentoEntity(
             null,
+            pagamentoRequestDTO.codigoDebito(),
             pagamentoRequestDTO.identificacaoPagador(),
             pagamentoRequestDTO.metodoPagamento(),
             pagamentoRequestDTO.numeroCartao(),

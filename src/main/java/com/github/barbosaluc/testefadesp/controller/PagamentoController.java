@@ -55,11 +55,20 @@ public class PagamentoController {
         return ResponseEntity.ok(pagamentoResponseDto);
     }
 
-    @GetMapping("/filtrosPagamentos")
-    public ResponseEntity<List<PagamentoResponseDTO>> buscarPagamentosPorFiltro(@ModelAttribute PagamentoFiltroDTO pagamentoFiltroDTO) {
-        List<PagamentoResponseDTO> resultados = pagamentoService.filtrarPagamentos(pagamentoFiltroDTO);
+    @PostMapping("/filtrosPagamentos")
+    public ResponseEntity<List<PagamentoResponseDTO>> buscarPagamentosPorFiltro(@RequestBody PagamentoFiltroDTO pagamentoFiltroDTO) {
+        List<PagamentoResponseDTO> resultados = pagamentoService.buscarPagamentosPorFiltro(pagamentoFiltroDTO);
         return ResponseEntity.ok(resultados);
-    } 
+    }
+
+    @GetMapping
+    @Operation(summary = "Listar todos os pagamentos", description = "Este endpoint lista todos os pagamentos existentes no sistema.")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Lista de pagamentos retornada com sucesso.")
+    })
+    public ResponseEntity<List<PagamentoResponseDTO>> listarPagamentos() {
+       return ResponseEntity.ok(pagamentoService.listarPagamentos());
+    }
         
     @PutMapping("/{idPagamento}")
     @Operation(summary = "Atualizar pagamento", description = "Este endpoint atualiza um pagamento existente no sistema com base no ID fornecido.")

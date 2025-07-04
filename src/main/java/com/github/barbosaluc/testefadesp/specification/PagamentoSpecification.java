@@ -1,13 +1,14 @@
 package com.github.barbosaluc.testefadesp.specification;
 
 import com.github.barbosaluc.testefadesp.domain.entities.PagamentoEntity;
-import com.github.barbosaluc.testefadesp.domain.enums.StatusPagamento
+import com.github.barbosaluc.testefadesp.domain.enums.StatusPagamento;
+import org.springframework.data.jpa.domain.Specification;
 
 public class PagamentoSpecification {
     
-    public static Specification<PagamentoEntity> comIdPagamento(long idPagamento) {
+    public static Specification<PagamentoEntity> comCodigoDebito(Long codigoDebito) {
         return (root, query, builder) -> 
-            idPagamento == null ? null : builder.equal(root.get("idPagamento"), idPagamento);
+            codigoDebito == null ? null : builder.equal(root.get("codigoDebito"), codigoDebito);
     }
 
     public static Specification<PagamentoEntity> comIdentificacaoPagador(String identificacaoPagador) {

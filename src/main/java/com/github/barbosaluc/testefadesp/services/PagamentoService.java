@@ -16,7 +16,6 @@ import com.github.barbosaluc.testefadesp.domain.enums.StatusPagamento;
 import com.github.barbosaluc.testefadesp.dto.PagamentoRequestDTO;
 import com.github.barbosaluc.testefadesp.dto.PagamentoResponseDTO;
 import com.github.barbosaluc.testefadesp.dto.PagamentoFiltroDTO;
-import com.github.barbosaluc.testefadesp.dto.PagamentoFiltroDTO;
 import com.github.barbosaluc.testefadesp.persistence.repositories.IPagamentoRepository;
 import com.github.barbosaluc.testefadesp.specification.PagamentoSpecification;
 import com.github.barbosaluc.testefadesp.util.PagamentoMapper;
@@ -80,11 +79,14 @@ public class PagamentoService {
     }
 
     public List<PagamentoResponseDTO> buscarPagamentosPorFiltro(PagamentoFiltroDTO pagamentoFiltroDTO) {
-        Specification<PagamentoEntity> spec = PagamentoSpecification.comIdPagamento(pagamentoFiltroDTO.idPagamento())
+        logger.info("PagamentoService.buscarPagamentosPorFiltro - Buscando pagamentos com filtros: {}", pagamentoFiltroDTO);
+
+        Specification<PagamentoEntity> spec = PagamentoSpecification.comCodigoDebito(pagamentoFiltroDTO.codigoDebito())
             .and(PagamentoSpecification.comIdentificacaoPagador(pagamentoFiltroDTO.identificacaoPagador()))
-            .and(PagamentoSpecification.comStatusPagamento(pagamentoFiltroDTO.getStatusPagamento()));
+            .and(PagamentoSpecification.comStatusPagamento(pagamentoFiltroDTO.statusPagamento()));
 
         List<PagamentoEntity> pagamentos = iPagamentoRepository.findAll(spec);
+        logger.info("PagamentoService.buscarPagamentosPorFiltro - Encontrados {} pagamentos com os filtros fornecidos", pagamentos.size());
         return pagamentos.stream()
             .map(PagamentoMapper::toResponseFromEntity)
             .toList();
