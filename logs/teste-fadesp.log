@@ -1,0 +1,98 @@
+2025-07-06 23:01:39 - Starting TesteFadespApplication using Java 17.0.14 with PID 9180 (C:\workspace\ws-visual studio code\teste-fadesp\target\classes started by lucas in C:\workspace\ws-visual studio code\teste-fadesp)
+2025-07-06 23:01:39 - No active profile set, falling back to 1 default profile: "default"
+2025-07-06 23:01:39 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-06 23:01:39 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-06 23:01:40 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-06 23:01:40 - Finished Spring Data repository scanning in 97 ms. Found 1 JPA repository interface.
+2025-07-06 23:01:41 - Tomcat initialized with port 8080 (http)
+2025-07-06 23:01:41 - Initializing ProtocolHandler ["http-nio-8080"]
+2025-07-06 23:01:41 - Starting service [Tomcat]
+2025-07-06 23:01:41 - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-06 23:01:42 - Initializing Spring embedded WebApplicationContext
+2025-07-06 23:01:42 - Root WebApplicationContext: initialization completed in 2889 ms
+2025-07-06 23:01:42 - HikariPool-1 - Starting...
+2025-07-06 23:01:42 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:bancoTesteFadesp user=SA
+2025-07-06 23:01:42 - HikariPool-1 - Start completed.
+2025-07-06 23:01:42 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-06 23:01:43 - HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-07-06 23:01:43 - HHH000026: Second-level cache disabled
+2025-07-06 23:01:43 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-06 23:01:43 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-06 23:01:43 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-06 23:01:45 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-06 23:01:45 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-06 23:01:45 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-06 23:01:45 - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-06 23:01:46 - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:bancoTesteFadesp'
+2025-07-06 23:01:46 - LiveReload server is running on port 35729
+2025-07-06 23:01:46 - Starting ProtocolHandler ["http-nio-8080"]
+2025-07-06 23:01:46 - Tomcat started on port 8080 (http) with context path '/'
+2025-07-06 23:01:46 - Started TesteFadespApplication in 9.091 seconds (process running for 11.047)
+2025-07-06 23:01:46 - A aplicação iniciada com sucesso!
+2025-07-06 23:01:51 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-06 23:01:51 - Initializing Servlet 'dispatcherServlet'
+2025-07-06 23:01:51 - Completed initialization in 1 ms
+2025-07-06 23:01:52 - Resolved [jakarta.servlet.ServletException: Handler dispatch failed: java.lang.NoSuchMethodError: 'void org.springframework.web.method.ControllerAdviceBean.<init>(java.lang.Object)']
+2025-07-06 23:01:59 - Resolved [jakarta.servlet.ServletException: Handler dispatch failed: java.lang.NoSuchMethodError: 'void org.springframework.web.method.ControllerAdviceBean.<init>(java.lang.Object)']
+2025-07-06 23:03:24 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-06 23:03:25 - Graceful shutdown complete
+2025-07-06 23:03:25 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-06 23:03:25 - Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-07-06 23:03:25 - HikariPool-1 - Shutdown initiated...
+2025-07-06 23:03:25 - HikariPool-1 - Shutdown completed.
+2025-07-06 23:07:17 - Starting TesteFadespApplication using Java 17.0.14 with PID 7872 (C:\workspace\ws-visual studio code\teste-fadesp\target\classes started by lucas in C:\workspace\ws-visual studio code\teste-fadesp)
+2025-07-06 23:07:17 - No active profile set, falling back to 1 default profile: "default"
+2025-07-06 23:07:17 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-06 23:07:17 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-06 23:07:19 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-06 23:07:19 - Finished Spring Data repository scanning in 94 ms. Found 1 JPA repository interface.
+2025-07-06 23:07:20 - Tomcat initialized with port 8080 (http)
+2025-07-06 23:07:20 - Initializing ProtocolHandler ["http-nio-8080"]
+2025-07-06 23:07:20 - Starting service [Tomcat]
+2025-07-06 23:07:20 - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-06 23:07:20 - Initializing Spring embedded WebApplicationContext
+2025-07-06 23:07:20 - Root WebApplicationContext: initialization completed in 2990 ms
+2025-07-06 23:07:21 - HikariPool-1 - Starting...
+2025-07-06 23:07:21 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:bancoTesteFadesp user=SA
+2025-07-06 23:07:21 - HikariPool-1 - Start completed.
+2025-07-06 23:07:21 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-06 23:07:21 - HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-07-06 23:07:21 - HHH000026: Second-level cache disabled
+2025-07-06 23:07:22 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-06 23:07:22 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-06 23:07:22 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-06 23:07:23 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-06 23:07:23 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-06 23:07:24 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-06 23:07:24 - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-06 23:07:24 - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:bancoTesteFadesp'
+2025-07-06 23:07:25 - LiveReload server is running on port 35729
+2025-07-06 23:07:25 - Starting ProtocolHandler ["http-nio-8080"]
+2025-07-06 23:07:25 - Tomcat started on port 8080 (http) with context path '/'
+2025-07-06 23:07:25 - Started TesteFadespApplication in 9.604 seconds (process running for 12.129)
+2025-07-06 23:07:25 - A aplicação iniciada com sucesso!
+2025-07-06 23:07:35 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-06 23:07:35 - Initializing Servlet 'dispatcherServlet'
+2025-07-06 23:07:35 - Completed initialization in 6 ms
+2025-07-06 23:07:37 - Resolved [jakarta.servlet.ServletException: Handler dispatch failed: java.lang.NoSuchMethodError: 'void org.springframework.web.method.ControllerAdviceBean.<init>(java.lang.Object)']
+2025-07-06 23:07:41 - Resolved [jakarta.servlet.ServletException: Handler dispatch failed: java.lang.NoSuchMethodError: 'void org.springframework.web.method.ControllerAdviceBean.<init>(java.lang.Object)']
+2025-07-06 23:07:49 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-06 23:07:50 - Graceful shutdown complete
+2025-07-06 23:07:50 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-06 23:07:50 - Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-07-06 23:07:50 - HikariPool-1 - Shutdown initiated...
+2025-07-06 23:07:50 - HikariPool-1 - Shutdown completed.

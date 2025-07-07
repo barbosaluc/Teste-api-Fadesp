@@ -53,7 +53,7 @@ public class PagamentoEntity {
     private MetodoPagamento metodoPagamento;
 
     @Column(name = "NUMERO_CARTAO")
-    private Long numeroCartao;
+    private String numeroCartao;
 
     @NotNull(message = "O valor do pagamento é obrigatório")
     @Column(name = "VALOR_PAGAMENTO", nullable = false)

@@ -18,7 +18,7 @@ public record PagamentoRequestDTO(
     @NotNull(message = "O método de pagamento é obrigatório")
     MetodoPagamento metodoPagamento,
 
-    Long numeroCartao,
+    String numeroCartao,
 
     @NotNull(message = "O valor do pagamento é obrigatório")
     BigDecimal valorPagamento

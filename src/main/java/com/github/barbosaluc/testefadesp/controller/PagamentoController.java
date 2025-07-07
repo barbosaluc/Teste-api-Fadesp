@@ -76,7 +76,7 @@ public class PagamentoController {
         @ApiResponse(responseCode = "204", description = "Pagamento atualizado com sucesso."),
         @ApiResponse(responseCode = "404", description = "Pagamento não encontrado.")
     })
-    public ResponseEntity<PagamentoResponseDTO> atualizarPagamento(@PathVariable Long idPagamento, @Valid @RequestBody PagamentoRequestDTO pagamentoRequestDTO,  StatusPagamento statusPagamento) {
+    public ResponseEntity<PagamentoResponseDTO> atualizarPagamento(@PathVariable Long idPagamento, @Valid @RequestBody PagamentoRequestDTO pagamentoRequestDTO, StatusPagamento statusPagamento) {
         PagamentoResponseDTO pagamentoResponseDto = pagamentoService.atualizarPagamento(idPagamento, pagamentoRequestDTO, statusPagamento);
         if (pagamentoResponseDto != null) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(pagamentoResponseDto);

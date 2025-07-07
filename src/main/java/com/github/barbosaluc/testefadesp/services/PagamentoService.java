@@ -2,14 +2,16 @@ package com.github.barbosaluc.testefadesp.services;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.github.barbosaluc.testefadesp.exceptions.pagamentos.StatusInvalidoException;
+import com.github.barbosaluc.testefadesp.exceptions.pagamentos.StatusPagamentoInvalidoException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import com.github.barbosaluc.testefadesp.exceptions.pagamentos.PagamentoNaoEncontradoException;
 import com.github.barbosaluc.testefadesp.domain.entities.PagamentoEntity;
 import com.github.barbosaluc.testefadesp.domain.enums.Status;
 import com.github.barbosaluc.testefadesp.domain.enums.StatusPagamento;
@@ -51,16 +53,13 @@ public class PagamentoService {
     public PagamentoResponseDTO buscarPagamentoPorId(Long idPagamento) {
         logger.info("PagamentoService.bucarPagamentoPorId - Buscando pagamento com ID: {}", idPagamento);
         try {
-            Optional<PagamentoEntity> pagamentoEntityOptional = iPagamentoRepository.findById(idPagamento);
-            if(pagamentoEntityOptional.isPresent()) {
+            PagamentoEntity pagamentoEntity = iPagamentoRepository.findById(idPagamento)
+                    .orElseThrow(() -> new PagamentoNaoEncontradoException("Pagamento não encontrado com ID: " + idPagamento));
+
                 logger.info("PagamentoService.buscarPagamentoPorId - Pagamento encontrado com ID; {}", idPagamento);
-                return toResponseFromEntity(pagamentoEntityOptional.get());
-            } else {
-                logger.warn("PagamentoSerivce.buscarPagamentoPorId - Pagamento não encontrado com ID: {}", idPagamento);
-                return null;
-            }
+            return toResponseFromEntity(pagamentoEntity);
         } catch ( Exception e) {
-            logger.error("PagamentoService.buscarPagamentoPorId - Erro ao buscar pagamento com ID: {}", idPagamento, e.getMessage(), e);
+            logger.error("PagamentoService.buscarPagamentoPorId - Erro ao buscar pagamento com ID: {} {}", idPagamento, e.getMessage(), e);
             throw new RuntimeException("Erro ao buscar pagamento", e);
         }
     }
@@ -97,23 +96,18 @@ public class PagamentoService {
         logger.info("PagamentoService.atualizarPagamento - Atualizando pagamento com ID: {}", idPagamento);
         try {
             PagamentoEntity pagamentoEntity = iPagamentoRepository.findById(idPagamento)
-                .orElseThrow(() -> new RuntimeException("Pagamento não encontrado com ID: " + idPagamento));
-/*
-            pagamentoEntity.setIdentificacaoPagador(pagamentoRequestDTO.identificacaoPagador());
-            pagamentoEntity.setMetodoPagamento(pagamentoRequestDTO.metodoPagamento());
-            pagamentoEntity.setNumeroCartao(pagamentoRequestDTO.numeroCartao());
-            pagamentoEntity.setValorPagamento(pagamentoRequestDTO.valorPagamento());
-*/
+                .orElseThrow(() -> new PagamentoNaoEncontradoException("Pagamento não encontrado com ID: " + idPagamento));
+
             if (pagamentoEntity.getStatusPagamento() == StatusPagamento.PENDENTE_PROCESSAMENTO && novoStatus == StatusPagamento.PROCESSADO_SUCESSO) {
                 pagamentoEntity.setDataPagamento(LocalDateTime.now());
             }
 
             if (pagamentoEntity.getStatusPagamento() == StatusPagamento.PROCESSADO_SUCESSO) {
-                throw new IllegalStateException("Não é permitido alterar o status de um pagamento processado com sucesso");
+                throw new StatusPagamentoInvalidoException("Não é permitido alterar o status de um pagamento processado com sucesso");
             }
 
             if (pagamentoEntity.getStatusPagamento() == StatusPagamento.PROCESSADO_FALHA && novoStatus != StatusPagamento.PENDENTE_PROCESSAMENTO ) {
-                throw new IllegalStateException("Só é permitido alterar o pagamento processado com falha para processamento pendente");
+                throw new StatusPagamentoInvalidoException("Só é permitido alterar o pagamento processado com falha para processamento pendente");
             }
 
             pagamentoEntity.setStatusPagamento(novoStatus);
@@ -133,14 +127,14 @@ public class PagamentoService {
                 .orElseThrow(() -> new RuntimeException("Pagamento não encontrado com ID: " + idPagamento));
 
                 if(pagamentoEntity.getStatusPagamento() != StatusPagamento.PENDENTE_PROCESSAMENTO) {
-                    throw new IllegalStateException("Pagamento só pode ser inativado se estiver com o processamento pendente");
+                    throw new StatusInvalidoException("Pagamento só pode ser inativado se estiver com o processamento pendente");
                 }
             
             pagamentoEntity.setStatus(Status.INATIVO);
             iPagamentoRepository.save(pagamentoEntity);
             logger.info("PagamentoService.excluirPagamentoLogicamente - Pagamento inativado com sucesso. ID: {}", idPagamento);
         } catch (Exception e) {
-            logger.error("PagamentoService.excluirPagamentoLogicamente - Erro ao inativar pagamento com ID: {}", idPagamento, e.getMessage(), e);
+            logger.error("PagamentoService.excluirPagamentoLogicamente - Erro ao inativar pagamento com ID: {} {}", idPagamento, e.getMessage(), e);
             throw new RuntimeException("Erro ao inativar pagamento", e);
         }
     }
