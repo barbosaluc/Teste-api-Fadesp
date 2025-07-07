@@ -110,6 +110,10 @@ public class PagamentoService {
                 throw new StatusPagamentoInvalidoException("Só é permitido alterar o pagamento processado com falha para processamento pendente");
             }
 
+            if (pagamentoEntity.getStatus() == Status.INATIVO) {
+                throw new StatusInvalidoException("Pagamento inativo não pode ser atualizado");
+            }
+
             pagamentoEntity.setStatusPagamento(novoStatus);
             iPagamentoRepository.save(pagamentoEntity);
             logger.info("PagamentoService.atualizarPagamento - Pagamento atualizado com sucesso com ID: {}", idPagamento);
@@ -124,7 +128,7 @@ public class PagamentoService {
         logger.info("PagamentoService.excluirPagamentoLogicamente - Tentando inativar pagamento com ID: {}", idPagamento);
         try {
             PagamentoEntity pagamentoEntity = iPagamentoRepository.findById(idPagamento)
-                .orElseThrow(() -> new RuntimeException("Pagamento não encontrado com ID: " + idPagamento));
+                .orElseThrow(() -> new PagamentoNaoEncontradoException("Pagamento não encontrado com ID: " + idPagamento));
 
                 if(pagamentoEntity.getStatusPagamento() != StatusPagamento.PENDENTE_PROCESSAMENTO) {
                     throw new StatusInvalidoException("Pagamento só pode ser inativado se estiver com o processamento pendente");

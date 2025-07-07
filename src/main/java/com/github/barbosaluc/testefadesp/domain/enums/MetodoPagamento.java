@@ -7,8 +7,8 @@ public enum MetodoPagamento {
     
     BOLETO("Boleto"),
     PIX("Pix"),
-    CARTAO_CREDITO("Cartão de Credito"),
-    CARTAO_DEBITO("Cartão de Debito");
+    CARTAO_CREDITO("Cartao de Credito"),
+    CARTAO_DEBITO("Cartao de Debito");
 
     private String descricao;
 

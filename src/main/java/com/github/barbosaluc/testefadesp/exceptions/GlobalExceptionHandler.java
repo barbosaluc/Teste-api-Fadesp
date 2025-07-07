@@ -26,13 +26,4 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(new ErrorResponse(ex.getMessage(), 400), HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponse> handleGenericException(Exception ex) throws Exception {
-        String pkg = ex.getClass().getPackageName();
-        if (pkg.startsWith("springfox") || pkg.startsWith("org.springdoc") || pkg.startsWith("io.swagger")) {
-            throw ex;
-        }
-        return new ResponseEntity<>(new ErrorResponse("Erro interno no servidor", 500), HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-
 }
